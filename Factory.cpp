@@ -34,7 +34,12 @@ Fastamp_Math::Circle Factory::CreateCircle(Fastamp_Math::Point Center, double Ra
 
  Factory::Factory(const Factory& copyFactor)
 {
-	
+	 
+}
+
+ Factory Factory::operator=(Factory& pt)
+{
+	 return *this;
 }
 
 Factory::~Factory()

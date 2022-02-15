@@ -1,8 +1,8 @@
 
 
-/******************************************************** 
-    *  @Time     :  2022/02/15 10:19
-    *  @author   :  Xiao YQ  
+/********************************************************
+	*  @Time     :  2022/02/15 10:19
+	*  @author   :  Xiao YQ
 *********************************************************/
 #pragma once
 #include "Point.h"
@@ -18,7 +18,7 @@ namespace Fastamp_Math
 		Circle();
 	public:
 		static int CircleNum;
-				
+
 		//************************************
 		// Method:    GetCircle
 		// FullName:  Fastamp_Math::Circle::GetCircle
@@ -28,7 +28,7 @@ namespace Fastamp_Math
 		// Function:  新建圆
 		//************************************
 		static Circle* GetCircle() { return (new Circle); }
-		
+
 		//************************************
 		// Method:    Circle
 		// FullName:  Fastamp_Math::Circle::Circle
@@ -41,7 +41,7 @@ namespace Fastamp_Math
 		// Function:  赋值构造函数
 		//************************************
 		Circle(Point center, MathVector normalVector, double radius);
-		
+
 		//************************************
 		// Method:    Circle
 		// FullName:  Fastamp_Math::Circle::Circle
@@ -52,7 +52,7 @@ namespace Fastamp_Math
 		// Function:  复制构造函数
 		//************************************
 		Circle(const Circle& pt);
-				
+
 		//************************************
 		// Method:    operator=
 		// FullName:  Fastamp_Math::Circle::operator=
@@ -63,7 +63,7 @@ namespace Fastamp_Math
 		// Function:  =运算符重载
 		//************************************
 		Circle operator=(Circle& pt);
-		
+
 		//************************************
 		// Method:    ~Circle
 		// FullName:  Fastamp_Math::Circle::~Circle
@@ -73,7 +73,7 @@ namespace Fastamp_Math
 		// Function:  析构函数
 		//************************************
 		~Circle();
-		
+
 		//************************************
 		// Method:    GetCenter
 		// FullName:  Fastamp_Math::Circle::GetCenter
@@ -83,7 +83,7 @@ namespace Fastamp_Math
 		// Function:  获取圆心
 		//************************************
 		Point GetCenter()const;
-		
+
 		//************************************
 		// Method:    GetNormalVector
 		// FullName:  Fastamp_Math::Circle::GetNormalVector
@@ -93,7 +93,7 @@ namespace Fastamp_Math
 		// Function:  获取法向量
 		//************************************
 		MathVector GetNormalVector()const;
-		
+
 		//************************************
 		// Method:    GetRadius
 		// FullName:  Fastamp_Math::Circle::GetRadius
@@ -102,8 +102,8 @@ namespace Fastamp_Math
 		// Qualifier: const
 		// Function:  获取半径
 		//************************************
-		double GetRadius()const;	
-		
+		double GetRadius()const;
+
 		//************************************
 		// Method:    SetCenter
 		// FullName:  Fastamp_Math::Circle::SetCenter
@@ -114,7 +114,7 @@ namespace Fastamp_Math
 		// Function:  设置圆心
 		//************************************
 		void SetCenter(Point p);
-		
+
 		//************************************
 		// Method:    SetNormalVector
 		// FullName:  Fastamp_Math::Circle::SetNormalVector
@@ -125,7 +125,7 @@ namespace Fastamp_Math
 		// Function:  设置法向量
 		//************************************
 		void SetNormalVector(MathVector m);
-		
+
 		//************************************
 		// Method:    SetRadius
 		// FullName:  Fastamp_Math::Circle::SetRadius
@@ -135,8 +135,8 @@ namespace Fastamp_Math
 		// Parameter: double r
 		// Function:  设置半径
 		//************************************
-		void SetRadius(double r);	
-		
+		void SetRadius(double r);
+
 		//************************************
 		// Method:    GetLength
 		// FullName:  Fastamp_Math::Circle::GetLength
@@ -146,7 +146,7 @@ namespace Fastamp_Math
 		// Function:  获取周长
 		//************************************
 		double GetLength()const;
-		
+
 		//************************************
 		// Method:    GetArea
 		// FullName:  Fastamp_Math::Circle::GetArea
@@ -156,7 +156,7 @@ namespace Fastamp_Math
 		// Function:  获取面积
 		//************************************
 		double GetArea()const;
-		
+
 		//************************************
 		// Method:    getNumOfCircles
 		// FullName:  Fastamp_Math::Circle::getNumOfCircles
@@ -165,7 +165,9 @@ namespace Fastamp_Math
 		// Qualifier:
 		// Function:  获取实例的个数
 		//************************************
-		static int getNumOfCircles(){return CircleNum;}
+		static int getNumOfCircles() { return CircleNum; }
+
+		friend class Cross;
 	};
 }
 

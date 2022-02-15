@@ -88,5 +88,17 @@ public:
 	// Function:  创建工厂
 	//************************************
 	friend Factory CreateFactory();
+
+	
+	//************************************
+	// Method:    operator=
+	// FullName:  Factory::operator=
+	// Access:    public 
+	// Returns:   Factory
+	// Qualifier:
+	// Parameter: Factory & pt
+	// Function:  拷贝构造函数
+	//************************************
+	Factory operator=(Factory& pt);
 };
 

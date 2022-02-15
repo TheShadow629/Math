@@ -38,7 +38,7 @@ namespace Fastamp_Math
 	
 		//为了调用构造函数使得CircleNum++
 		Circle newCircle(pt.GetCenter(), pt.GetNormalVector(), pt.GetRadius());
-	
+
 		return *this;
 	}
 	

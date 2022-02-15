@@ -10,6 +10,7 @@
 #include <iostream>
 
 #include "Circle.h"
+#include "Factory.h"
 #include "Line.h"
 namespace Fastamp_Math
 {
@@ -20,25 +21,35 @@ namespace Fastamp_Math
 
 	//因为后期将line和circle的构造函数改成了private导致报错，暂未解决
 
-	/*Cross::Cross() 
+	Cross::Cross() :Cross(*new Line,*new Circle)
 	{
-		Line* L1 = Line::GetLine();
-		L1->SetStartPoint(*new Point);
-		L1->SetEndPoint(*new Point);
-		m_Line = *L1;
+		//Line* L1 = Line::GetLine();
+		//L1->SetStartPoint(*new Point);
+		//L1->SetEndPoint(*new Point);
+		//m_Line = *L1;
 
-		Circle* c1 =Circle::GetCircle();
-		c1->SetCenter(*new Point);
-		c1->SetRadius(0);
-		c1->SetNormalVector(*new MathVector);
-		m_Circle=*c1;		
+		//Circle* c1 =Circle::GetCircle();
+		//c1->SetCenter(*new Point);
+		//c1->SetRadius(0);
+		//c1->SetNormalVector(*new MathVector);
+		//m_Circle=*c1;
+
+		//Factory* f1 = Factory::GetFactory();
+		//m_Line=f1->CreateLine(*new Point, *new Point);
+
+		//m_Line.SetStartPoint(*new Point);
+		//m_Line.SetEndPoint(*new Point);
+
+		//m_Circle.SetCenter(*new Point);
+		//m_Circle.SetNormalVector(*new MathVector);
+		//m_Circle.SetRadius(0);
 	}
 
 	Cross::Cross(Line m, Circle c)
 	{
 		SetCircle(c);
 		SetLine(m);
-	}*/
+	}
 
 	Cross::Cross(const Cross& pt) :Cross(pt.GetLine(), pt.GetCircle())
 	{

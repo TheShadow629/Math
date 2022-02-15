@@ -154,6 +154,8 @@ namespace Fastamp_Math
 		// Function:  获取类型
 		//************************************
 		virtual Type GetType() { return Indefinite; }
+
+		friend class Cross;
 	};
 }
 
