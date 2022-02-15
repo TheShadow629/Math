@@ -15,9 +15,9 @@ namespace Fastamp_Math
 		Point m_Center;
 		MathVector m_NormalVector;
 		double m_Radius;
-		static int CircleNum;
 		Circle();
 	public:
+		static int CircleNum;
 				
 		//************************************
 		// Method:    GetCircle

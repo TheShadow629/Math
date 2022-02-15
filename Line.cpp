@@ -14,6 +14,7 @@ namespace  Fastamp_Math
 		Point ZeroPoint(0,0,0);
 		m_StartPoint = ZeroPoint;
 		m_EndPoint = ZeroPoint;
+		type = Indefinite;
 	}
 	
 	Line::Line(const Line& pt)

@@ -153,7 +153,7 @@ namespace Fastamp_Math
 		// Qualifier:
 		// Function:  获取类型
 		//************************************
-		virtual Type GetType();
+		virtual Type GetType() { return Indefinite; }
 	};
 }
 
