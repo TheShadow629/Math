@@ -31,3 +31,13 @@ Fastamp_Math::Circle Factory::CreateCircle(Fastamp_Math::Point Center, double Ra
 	 Factory fac;
 	 return  fac;
 }
+
+ Factory::Factory(const Factory& copyFactor)
+{
+	
+}
+
+Factory::~Factory()
+{
+	
+}
