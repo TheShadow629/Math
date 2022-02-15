@@ -87,6 +87,7 @@ namespace Fastamp_Math
 	{
 		CircleNum--;
 	}
+	int Circle::CircleNum = 0;
 	
 	
 }
