@@ -1,4 +1,10 @@
-﻿#include "MathVector.h"
+﻿
+
+/******************************************************** 
+    *  @Time     :  2022/02/15 10:21
+    *  @author   :  Xiao YQ  
+*********************************************************/
+#include "MathVector.h"
 #include <cmath>
 #define PI  3.14159265358979323846
 namespace Fastamp_Math

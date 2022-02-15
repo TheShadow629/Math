@@ -1,7 +1,13 @@
+
+
+/******************************************************** 
+    *  @Time     :  2022/02/15 10:20
+    *  @author   :  Xiao YQ  
+*********************************************************/
 #pragma once
 #include "Point.h"
 #include "MathVector.h"
-#include "Line.h"duationDesign\Codes\day1\Math
+#include "Line.h"
 namespace Fastamp_Math
 {
 	class _declspec(dllexport)  Ray :public Line
