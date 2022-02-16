@@ -147,6 +147,17 @@ namespace Fastamp_Math
 		~MathVector();
 	};
 
+	
+	//************************************
+	// Method:    operator*
+	// FullName:  Fastamp_Math::operator*
+	// Access:    public 
+	// Returns:   Fastamp_Math::MathVector
+	// Qualifier:
+	// Parameter: double n
+	// Parameter: const MathVector m
+	// Function:  *‘ÀÀ„∑˚÷ÿ‘ÿ
+	//************************************
 	MathVector operator*(double n, const MathVector m);
 	//MathVector operator*(const MathVector m, double n);
 

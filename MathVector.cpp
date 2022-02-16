@@ -6,6 +6,7 @@
 *********************************************************/
 #include "MathVector.h"
 #include <cmath>
+#include <iostream>
 #define PI  3.14159265358979323846
 namespace Fastamp_Math
 {
@@ -87,9 +88,16 @@ namespace Fastamp_Math
 	}
 	void MathVector::VectorUnitize()
 	{
-		m_X = (m_X / this->GetLength());
-		m_Y = (m_Y / this->GetLength());
-		m_Z = (m_Z / this->GetLength());
+		try {
+			m_X = (m_X / this->GetLength());
+			m_Y = (m_Y / this->GetLength());
+			m_Z = (m_Z / this->GetLength());
+		}
+		catch (std::exception& e) 
+		{ // catches exception objects by reference (notice the ampersand & after the type)
+			std::cout << e.what() << '\n';
+			std::cout << "零向量无法单位化" << std::endl;
+		}
 	}
 
 	double MathVector::GetAngle(const MathVector& n)const
@@ -103,9 +111,9 @@ namespace Fastamp_Math
 	MathVector MathVector::CrossProduct(const MathVector& n, const MathVector& m)const
 	{
 		MathVector CrossProductResult;
-		CrossProductResult.m_X = m.m_Y * n.m_Z - m.m_Z - n.m_Y;
-		CrossProductResult.m_Y = m.m_X * n.m_Z - m.m_Z - n.m_X;
-		CrossProductResult.m_Z = m.m_X * n.m_Y - m.m_Y - n.m_X;
+		CrossProductResult.m_X = m.m_Y * n.m_Z - m.m_Z * n.m_Y;
+		CrossProductResult.m_Y = m.m_X * n.m_Z - m.m_Z * n.m_X;
+		CrossProductResult.m_Z = m.m_X * n.m_Y - m.m_Y * n.m_X;
 		return CrossProductResult;
 	}
 

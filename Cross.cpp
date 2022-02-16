@@ -1,8 +1,8 @@
 
 
-/******************************************************** 
-    *  @Time     :  2022/02/15 10:20
-    *  @author   :  Xiao YQ  
+/********************************************************
+	*  @Time     :  2022/02/15 10:20
+	*  @author   :  Xiao YQ
 *********************************************************/
 #include "Cross.h"
 
@@ -21,7 +21,7 @@ namespace Fastamp_Math
 
 	//因为后期将line和circle的构造函数改成了private导致报错，暂未解决
 
-	Cross::Cross() :Cross(*new Line,*new Circle)
+	Cross::Cross() :Cross(*new Line, *new Circle)
 	{
 		//Line* L1 = Line::GetLine();
 		//L1->SetStartPoint(*new Point);
@@ -110,7 +110,13 @@ namespace Fastamp_Math
 			+ m_Line.GetStartPoint().m_Z * m_Circle.GetCenter().m_Z);
 		bb4ac = b * b - 4 * a * c;
 
-		if (fabs(a) == 0 || bb4ac < 0) {
+		/*		if (fabs(a) == 0) {
+					std::cout << "二者相切" << std::endl;
+					return -1;
+				}
+				else*/
+		if (bb4ac < 0)
+		{
 			std::cout << "无交点" << std::endl;
 			return -1;
 		}
@@ -119,13 +125,20 @@ namespace Fastamp_Math
 		t2 = (-b - sqrt(bb4ac)) / (2 * a);
 
 		Point ZeroPoint(0, 0, 0);
-		*res1 = t1*m_Line.GetDirection()  + (m_Line.GetStartPoint() - ZeroPoint);
-		*res2 = t2*m_Line.GetDirection()  + (m_Line.GetStartPoint() - ZeroPoint);
-
-		std::cout << "第一个交点是(" << (*res1).m_X << "," << (*res1).m_Y << "," << (*res1).m_Z << ")" << std::endl;
-		std::cout << "第二个交点是(" << (*res2).m_X << "," << (*res2).m_Y << "," << (*res2).m_Z << ")" << std::endl;
-		//https://www.it610.com/article/1283510958202830848.htm
-		return 0;
+		*res1 = t1 * m_Line.GetDirection() + (m_Line.GetStartPoint() - ZeroPoint);
+		*res2 = t2 * m_Line.GetDirection() + (m_Line.GetStartPoint() - ZeroPoint);
+		if (t1 == t2)
+		{
+			std::cout << "二者相切" << std::endl;
+			std::cout << "切点是(" << (*res1).m_X << "," << (*res1).m_Y << "," << (*res1).m_Z << ")" << std::endl;
+			return 0;
+		}
+		else {
+			std::cout << "第一个交点是(" << (*res1).m_X << "," << (*res1).m_Y << "," << (*res1).m_Z << ")" << std::endl;
+			std::cout << "第二个交点是(" << (*res2).m_X << "," << (*res2).m_Y << "," << (*res2).m_Z << ")" << std::endl;
+			//https://www.it610.com/article/1283510958202830848.htm
+			return 0;
+		}
 	}
 
 
