@@ -14,15 +14,11 @@
 #include "Line.h"
 namespace Fastamp_Math
 {
-	//Cross::Cross() :Cross(*(new Line), *(new Circle))
-	//{
-	//	//使用C++11的委托构造函数（在初始化列表位置调用）
-	//}
-
-	//因为后期将line和circle的构造函数改成了private导致报错，暂未解决
-
 	Cross::Cross() :Cross(*new Line, *new Circle)
 	{
+		//	//使用C++11的委托构造函数（在初始化列表位置调用）
+
+
 		//Line* L1 = Line::GetLine();
 		//L1->SetStartPoint(*new Point);
 		//L1->SetEndPoint(*new Point);
@@ -90,10 +86,25 @@ namespace Fastamp_Math
 
 	int Cross::GetCrossPoint(MathVector* const res1, MathVector* const res2)
 	{
+
+		//1.判断圆的法向量与直线向量的点积是否为0，为0 则表明圆和直线在同一平面内，
+		//否则认为二者不存在交点（忽略异面相交的情况）
+		//2.计算直线与球形的交点（球形即为之前的圆绕任一半径旋转一周形成的球形）
+		//3.所得交点即为直线与圆形的交点，输入两个向量，向量坐标即为交点坐标
+
+		MathVector line = m_Line.GetDirection();
+		MathVector circle_vector = m_Circle.GetNormalVector();
+		if ((line.m_X * circle_vector.m_X + line.m_Y * circle_vector.m_Y + line.m_Z * circle_vector.m_Z) != 0.00)
+		{
+			std::cout << "直线和圆不在一个平面内，此处忽略异面相交的情况，认为无交点" << std::endl;
+			//此处忽略异面相交的情况？
+			return -1;
+		}
+
 		double a, b, c;
 		double bb4ac;
 		double t1, t2;
-		MathVector line = m_Line.GetDirection();
+		//MathVector line = m_Line.GetDirection();
 
 		a = line.m_X * line.m_X + line.m_Y * line.m_Y + line.m_Z * line.m_Z;
 		b = 2 * (line.m_X * (m_Line.GetStartPoint().m_X - m_Circle.GetCenter().m_X)
@@ -110,11 +121,6 @@ namespace Fastamp_Math
 			+ m_Line.GetStartPoint().m_Z * m_Circle.GetCenter().m_Z);
 		bb4ac = b * b - 4 * a * c;
 
-		/*		if (fabs(a) == 0) {
-					std::cout << "二者相切" << std::endl;
-					return -1;
-				}
-				else*/
 		if (bb4ac < 0)
 		{
 			std::cout << "无交点" << std::endl;
@@ -140,8 +146,5 @@ namespace Fastamp_Math
 			return 0;
 		}
 	}
-
-
-
 }
 
