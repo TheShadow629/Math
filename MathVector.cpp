@@ -1,8 +1,8 @@
 ﻿
 
-/******************************************************** 
-    *  @Time     :  2022/02/15 10:21
-    *  @author   :  Xiao YQ  
+/********************************************************
+	*  @Time     :  2022/02/15 10:21
+	*  @author   :  Xiao YQ
 *********************************************************/
 #include "MathVector.h"
 #include <cmath>
@@ -93,7 +93,7 @@ namespace Fastamp_Math
 			m_Y = (m_Y / this->GetLength());
 			m_Z = (m_Z / this->GetLength());
 		}
-		catch (std::exception& e) 
+		catch (std::exception& e)
 		{ // catches exception objects by reference (notice the ampersand & after the type)
 			std::cout << e.what() << '\n';
 			std::cout << "零向量无法单位化" << std::endl;
@@ -102,10 +102,11 @@ namespace Fastamp_Math
 
 	double MathVector::GetAngle(const MathVector& n)const
 	{
-		return (acos((m_X * n.m_X + m_Y * n.m_Y + m_Z * n.m_Z) /
+		double res = (acos((m_X * n.m_X + m_Y * n.m_Y + m_Z * n.m_Z) /
 			((sqrt(m_X * m_X + m_Y * m_Y + m_Z * m_X)) *
-				(sqrt(n.m_X * n.m_X + n.m_Y * n.m_Y + n.m_Z * n.m_Z)))))
+			(sqrt(n.m_X * n.m_X + n.m_Y * n.m_Y + n.m_Z * n.m_Z)))))
 			* 180 / PI;
+		return res;
 	}
 
 	MathVector MathVector::CrossProduct(const MathVector& n, const MathVector& m)const
