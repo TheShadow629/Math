@@ -102,9 +102,17 @@ namespace Fastamp_Math
 
 	double MathVector::GetAngle(const MathVector& n)const
 	{
-		double delta = (m_X * n.m_X + m_Y * n.m_Y + m_Z * n.m_Z) / sqrt((m_X * m_X + m_Y * m_Y + m_Z * m_Z) * (n.m_X * n.m_X + n.m_Y * n.m_Y + n.m_Z * n.m_Z));
-		double theta = acos(delta);
-		return theta;
+		try
+		{
+			double delta = (m_X * n.m_X + m_Y * n.m_Y + m_Z * n.m_Z) / sqrt((m_X * m_X + m_Y * m_Y + m_Z * m_Z) * (n.m_X * n.m_X + n.m_Y * n.m_Y + n.m_Z * n.m_Z));
+			double theta = acos(delta);
+			return theta;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << e.what() << '\n';
+			std::cout << "零向量与任何向量垂直或平行" << std::endl;
+		}	
 	}
 
 	MathVector MathVector::CrossProduct(const MathVector& n, const MathVector& m)const
