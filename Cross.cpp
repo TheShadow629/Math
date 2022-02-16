@@ -133,7 +133,7 @@ namespace Fastamp_Math
 		Point ZeroPoint(0, 0, 0);
 		*res1 = t1 * m_Line.GetDirection() + (m_Line.GetStartPoint() - ZeroPoint);
 		*res2 = t2 * m_Line.GetDirection() + (m_Line.GetStartPoint() - ZeroPoint);
-		if (t1 == t2)
+		if (abs(t1 - t2) < 0.000001)
 		{
 			std::cout << "二者相切" << std::endl;
 			std::cout << "切点是(" << (*res1).m_X << "," << (*res1).m_Y << "," << (*res1).m_Z << ")" << std::endl;

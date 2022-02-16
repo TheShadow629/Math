@@ -102,11 +102,9 @@ namespace Fastamp_Math
 
 	double MathVector::GetAngle(const MathVector& n)const
 	{
-		double res = (acos((m_X * n.m_X + m_Y * n.m_Y + m_Z * n.m_Z) /
-			((sqrt(m_X * m_X + m_Y * m_Y + m_Z * m_X)) *
-			(sqrt(n.m_X * n.m_X + n.m_Y * n.m_Y + n.m_Z * n.m_Z)))))
-			* 180 / PI;
-		return res;
+		double delta = (m_X * n.m_X + m_Y * n.m_Y + m_Z * n.m_Z) / sqrt((m_X * m_X + m_Y * m_Y + m_Z * m_Z) * (n.m_X * n.m_X + n.m_Y * n.m_Y + n.m_Z * n.m_Z));
+		double theta = acos(delta);
+		return theta;
 	}
 
 	MathVector MathVector::CrossProduct(const MathVector& n, const MathVector& m)const
